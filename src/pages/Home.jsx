@@ -29,6 +29,15 @@ const categories = [
     icon: "bi-bank",
     description: "EMI and financial tools",
   },
+
+  // NEW CURRENCY CATEGORY
+  {
+    name: "Currency",
+    label: "Currency",
+    icon: "bi-currency-exchange",
+    description: "Foreign payments & exchange tools",
+  },
+
   {
     name: "Business",
     label: "Business",
@@ -40,6 +49,14 @@ const categories = [
     label: "Daily Tools",
     icon: "bi-grid",
     description: "Useful everyday utilities",
+  },
+
+  // WORD COUNTER KE LIYE
+  {
+    name: "Text",
+    label: "Text Tools",
+    icon: "bi-fonts",
+    description: "Word and text utilities",
   },
 ];
 
@@ -99,17 +116,16 @@ function Home() {
               <i className="bi bi-stars"></i>
               Free Online Tools
             </div>
-
             <h1>
               Simple tools for
               <span> everyday work.</span>
             </h1>
 
             <p>
-              Free image, PDF, calculator and
-              business tools. Fast, simple and
-              designed to work on any device.
-            </p>
+  Free image, PDF, calculator, currency and
+  business tools. Fast, simple and
+  designed to work on any device.
+</p>
 
             <div className="main-tool-search">
               <i className="bi bi-search"></i>

@@ -9,6 +9,7 @@ const categories = [
   "PDF",
   "Calculator",
   "Finance",
+  "Currency",
   "Business",
   "Daily",
   "Text",

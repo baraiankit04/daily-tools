@@ -162,6 +162,15 @@ const toolsData = [
     path: "/word-counter",
     category: "Text",
   },
+  {
+  name: "Foreign Payment Calculator",
+  description:
+    "Calculate foreign payment, bank rate, charges, net INR and invoice outstanding.",
+  icon: "bi-currency-exchange",
+  path: "/foreign-payment-calculator",
+  category: "Currency",
+  popular: true,
+},
 ];
 
 export default toolsData;

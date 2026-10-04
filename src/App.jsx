@@ -33,6 +33,7 @@ import PassportPhotoMaker from "./tools/PassportPhotoMaker";
 import SignatureResizer from "./tools/SignatureResizer";
 import ImageConverter from "./tools/ImageConverter";
 import ImageCropper from "./tools/ImageCropper";
+import ForeignPaymentCalculator from "./tools/ForeignPaymentCalculator";
 function App() {
   return (
     <>
@@ -65,6 +66,7 @@ function App() {
           />
 
           <Route path="/about" element={<About />} />
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
@@ -140,6 +142,10 @@ function App() {
 <Route
   path="/image-cropper"
   element={<ImageCropper />}
+/>
+<Route
+  path="/foreign-payment-calculator"
+  element={<ForeignPaymentCalculator />}
 />
         </Routes>
       </main>
