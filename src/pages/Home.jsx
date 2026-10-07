@@ -108,10 +108,10 @@ function Home() {
 
   return (
     <>
-    <SEO
-  title="Free Online Tools for Images, PDF & Calculations"
-  description="Free online image, PDF, calculator and business tools. Compress images, resize photos, edit PDFs, calculate GST, EMI and more."
-  keywords="free online tools, image compressor, PDF tools, GST calculator, EMI calculator, image resizer"
+  <SEO
+  title="Free Online Tools - Image, PDF, Calculator & More"
+  description="Use free online tools for images, PDFs, calculations, finance, currency, text and business tasks. Fast, simple and mobile-friendly DailyTools."
+  keywords="free online tools, image compressor, PDF tools, online calculator, GST calculator, EMI calculator, image resizer, currency converter"
 />
       {/* HERO */}
 
@@ -122,15 +122,14 @@ function Home() {
               <i className="bi bi-stars"></i>
               Free Online Tools
             </div>
-            <h1>
-              Simple tools for
-              <span> everyday work.</span>
-            </h1>
+           <h1>
+  Free Online Tools for
+  <span> Everyday Work.</span>
+</h1>
 
-            <p>
-  Free image, PDF, calculator, currency and
-  business tools. Fast, simple and
-  designed to work on any device.
+       <p>
+  Compress images, manage PDFs, calculate GST and EMI,
+  convert currencies and use everyday online tools for free.
 </p>
 
             <div className="main-tool-search">
@@ -523,6 +522,46 @@ function Home() {
           </section>
         </>
       )}
+      {/* SEO CONTENT */}
+
+<section className="home-section">
+  <div className="container">
+    <div className="seo-content">
+
+      <h2>Free Online Tools for Everyday Tasks</h2>
+
+      <p>
+        DailyTools provides simple online utilities for common
+        image, PDF, calculation, finance, currency, business
+        and text tasks. You can compress and resize images,
+        work with PDF files, calculate GST and EMI, convert
+        currencies and use other everyday tools directly from
+        your browser.
+      </p>
+
+      <h2>Popular Free Online Tools</h2>
+
+      <p>
+        Use our Image Compressor to reduce image file size,
+        JPG to PDF tool to create PDF files, Signature Resizer
+        for document requirements, GST Calculator for tax
+        calculations, EMI Calculator for loan estimates and
+        Currency Converter for quick currency conversions.
+      </p>
+
+      <h2>Simple, Fast and Mobile Friendly</h2>
+
+      <p>
+        DailyTools is designed to keep everyday tasks simple.
+        Most tools require only a file or a few values before
+        showing the result. The website works on phones,
+        tablets and desktop computers, and many file-based
+        tools process data directly in your browser.
+      </p>
+
+    </div>
+  </div>
+</section>
     </>
   );
 }
