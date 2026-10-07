@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const SITE_NAME = "DailyTools";
-const SITE_URL = "https://daily-tools-zeta.vercel.app";
+const SITE_URL = "https://mydailytools-gamma.vercel.app";
 
 function SEO({
   title,
