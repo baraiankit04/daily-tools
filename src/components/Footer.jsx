@@ -7,6 +7,8 @@ function Footer() {
     <footer className="dt-footer">
       <div className="container">
         <div className="dt-footer-grid">
+
+          {/* BRAND */}
           <div className="dt-footer-brand">
             <Link to="/" className="dt-footer-logo">
               <div>
@@ -19,45 +21,68 @@ function Footer() {
             </Link>
 
             <p>
-              Simple, fast and free online tools for
-              images, PDFs, calculations, business
+              Free online tools for images, PDFs,
+              calculations, finance, business, text
               and everyday work.
             </p>
 
             <div className="dt-footer-note">
               <i className="bi bi-shield-check"></i>
+
               <span>
-                Many tools process files directly
-                in your browser.
+                Many file-based tools process your
+                files directly in your browser.
               </span>
             </div>
           </div>
 
+          {/* TOOLS */}
           <div className="dt-footer-column">
-            <h3>Tools</h3>
+            <h3>Popular Tools</h3>
 
-            <Link to="/tools">All Tools</Link>
             <Link to="/image-compressor">
               Image Compressor
             </Link>
-            <Link to="/pdf-compressor">
-              PDF Compressor
+
+            <Link to="/jpg-to-pdf">
+              JPG to PDF
             </Link>
+
+            <Link to="/signature-resizer">
+              Signature Resizer
+            </Link>
+
             <Link to="/gst-calculator">
               GST Calculator
             </Link>
+
             <Link to="/emi-calculator">
               EMI Calculator
             </Link>
+
+            <Link to="/tools">
+              View All Tools
+            </Link>
           </div>
 
+          {/* COMPANY */}
           <div className="dt-footer-column">
-            <h3>Company</h3>
+            <h3>DailyTools</h3>
 
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/about">
+              About Us
+            </Link>
+
+            <Link to="/contact">
+              Contact Us
+            </Link>
+
+            <Link to="/tools">
+              All Tools
+            </Link>
           </div>
 
+          {/* LEGAL */}
           <div className="dt-footer-column">
             <h3>Legal</h3>
 
@@ -77,7 +102,7 @@ function Footer() {
           </span>
 
           <span>
-            Built for simple everyday work.
+            Free online tools for everyday work.
           </span>
         </div>
       </div>
