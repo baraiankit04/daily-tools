@@ -1,13 +1,11 @@
 import SEO from "../components/SEO";
 
 function Contact() {
-  const contactEmail = "ankitchaurasiya583@gmail.com";
-
   return (
     <div className="simple-content-page">
       <SEO
-        title="Contact Us"
-        description="Contact DailyTools for support, feedback, bug reports and suggestions for free online tools."
+        title="Contact DailyTools"
+        description="Contact DailyTools for feedback, questions, bug reports and suggestions for new online tools."
       />
 
       <div className="container">
@@ -16,11 +14,11 @@ function Contact() {
             CONTACT
           </span>
 
-          <h1>Contact DailyTools</h1>
+          <h1>Contact Us</h1>
 
           <p>
-            Need help, found a problem or have an idea
-            for a useful new tool? Get in touch with us.
+            Found a problem or have an idea for a
+            useful tool? We'd like to hear from you.
           </p>
         </div>
 
@@ -34,9 +32,8 @@ function Contact() {
 
             <p>
               If a tool is not working correctly,
-              email us with the tool name, the issue
-              you experienced and your device or
-              browser if relevant.
+              tell us which tool you were using and
+              what happened.
             </p>
           </div>
 
@@ -48,10 +45,9 @@ function Contact() {
             <h2>Suggest a Tool</h2>
 
             <p>
-              Have an idea for a useful image, PDF,
-              calculator, business or everyday tool?
-              We welcome suggestions for improving
-              DailyTools.
+              Have an idea for a useful calculator,
+              image, PDF or everyday utility? Send
+              us your suggestion.
             </p>
           </div>
 
@@ -63,9 +59,9 @@ function Contact() {
             <h2>General Feedback</h2>
 
             <p>
-              Share feedback about our tools, design
-              or usability. Your suggestions can help
-              us make DailyTools more useful.
+              Feedback about design, usability and
+              existing tools helps us improve
+              DailyTools.
             </p>
           </div>
         </div>
@@ -77,33 +73,14 @@ function Contact() {
             <span>Contact Email</span>
 
             <strong>
-              <a
-                href={`mailto:${contactEmail}`}
-                className="text-decoration-none"
-              >
-                {contactEmail}
-              </a>
+              Add your official DailyTools email here
             </strong>
 
             <small>
-              For support, feedback, bug reports and
-              tool suggestions.
+              Before launching the website, replace
+              this with your final contact email.
             </small>
           </div>
-        </div>
-
-        <div className="mt-5 text-center">
-          <h2 className="h5 fw-bold">
-            Before contacting us
-          </h2>
-
-          <p className="text-muted mx-auto mb-0">
-            Please include enough information about
-            your question or issue so we can understand
-            it clearly. Never send passwords, payment
-            details or other sensitive information by
-            email.
-          </p>
         </div>
       </div>
     </div>

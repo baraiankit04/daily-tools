@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import RelatedTools from "./components/RelatedTools";
+import ToolSeoContent from "./components/ToolSeoContent";
 
 /* =========================
    PAGES
@@ -295,6 +296,7 @@ function App() {
 
         </Routes>
 
+        <ToolSeoContent />
         <RelatedTools />
       </main>
 
