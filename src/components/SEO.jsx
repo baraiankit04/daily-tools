@@ -10,24 +10,11 @@ function SEO({
   keywords = "",
   noIndex = false,
   image = "/og-image.png",
+  type = "website",
 }) {
   const location = useLocation();
 
   useEffect(() => {
-    // ==============================
-    // TITLE
-    // ==============================
-
-    const fullTitle = title
-      ? `${title} | ${SITE_NAME}`
-      : "DailyTools - Free Online Tools";
-
-    document.title = fullTitle;
-
-    // ==============================
-    // CANONICAL URL
-    // ==============================
-
     const cleanPath =
       location.pathname === "/"
         ? ""
@@ -35,9 +22,15 @@ function SEO({
 
     const canonicalUrl = `${SITE_URL}${cleanPath}`;
 
-    // ==============================
+    const fullTitle = title
+      ? `${title} | ${SITE_NAME}`
+      : "DailyTools - Free Online Tools";
+
+    document.title = fullTitle;
+
+    // =========================
     // META NAME
-    // ==============================
+    // =========================
 
     const updateMeta = (name, content) => {
       let tag = document.head.querySelector(
@@ -53,9 +46,9 @@ function SEO({
       tag.setAttribute("content", content);
     };
 
-    // ==============================
+    // =========================
     // META PROPERTY
-    // ==============================
+    // =========================
 
     const updateProperty = (property, content) => {
       let tag = document.head.querySelector(
@@ -71,9 +64,9 @@ function SEO({
       tag.setAttribute("content", content);
     };
 
-    // ==============================
+    // =========================
     // BASIC SEO
-    // ==============================
+    // =========================
 
     updateMeta("description", description);
 
@@ -89,23 +82,16 @@ function SEO({
       }
     }
 
-    updateMeta(
-      "robots",
-      noIndex
-        ? "noindex, nofollow"
-        : "index, follow"
-    );
+    const robotsValue = noIndex
+      ? "noindex, nofollow"
+      : "index, follow";
 
-    updateMeta(
-      "googlebot",
-      noIndex
-        ? "noindex, nofollow"
-        : "index, follow"
-    );
+    updateMeta("robots", robotsValue);
+    updateMeta("googlebot", robotsValue);
 
-    // ==============================
+    // =========================
     // CANONICAL
-    // ==============================
+    // =========================
 
     let canonical = document.head.querySelector(
       'link[rel="canonical"]'
@@ -113,36 +99,65 @@ function SEO({
 
     if (!canonical) {
       canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
+
+      canonical.setAttribute(
+        "rel",
+        "canonical"
+      );
+
       document.head.appendChild(canonical);
     }
 
-    canonical.setAttribute("href", canonicalUrl);
+    canonical.setAttribute(
+      "href",
+      canonicalUrl
+    );
 
-    // ==============================
+    // =========================
     // OPEN GRAPH
-    // ==============================
+    // =========================
 
     updateProperty("og:type", "website");
-    updateProperty("og:site_name", SITE_NAME);
-    updateProperty("og:title", fullTitle);
-    updateProperty("og:description", description);
-    updateProperty("og:url", canonicalUrl);
+
+    updateProperty(
+      "og:site_name",
+      SITE_NAME
+    );
+
+    updateProperty(
+      "og:title",
+      fullTitle
+    );
+
+    updateProperty(
+      "og:description",
+      description
+    );
+
+    updateProperty(
+      "og:url",
+      canonicalUrl
+    );
+
     updateProperty(
       "og:image",
       `${SITE_URL}${image}`
     );
 
-    // ==============================
+    // =========================
     // TWITTER / X
-    // ==============================
+    // =========================
 
     updateMeta(
       "twitter:card",
       "summary_large_image"
     );
 
-    updateMeta("twitter:title", fullTitle);
+    updateMeta(
+      "twitter:title",
+      fullTitle
+    );
+
     updateMeta(
       "twitter:description",
       description
@@ -152,12 +167,111 @@ function SEO({
       "twitter:image",
       `${SITE_URL}${image}`
     );
+
+    // =========================
+    // REMOVE OLD SCHEMA
+    // =========================
+
+    const oldSchema =
+      document.getElementById(
+        "dailytools-schema"
+      );
+
+    if (oldSchema) {
+      oldSchema.remove();
+    }
+
+    // =========================
+    // STRUCTURED DATA
+    // =========================
+
+    let schema;
+
+    if (type === "tool") {
+      schema = {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+
+        name:
+          title ||
+          "DailyTools Online Tool",
+
+        url: canonicalUrl,
+
+        description,
+
+        applicationCategory:
+          "UtilitiesApplication",
+
+        operatingSystem: "Any",
+
+        browserRequirements:
+          "Requires JavaScript and a modern web browser",
+
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+
+        provider: {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+      };
+    } else {
+      schema = {
+        "@context": "https://schema.org",
+
+        "@type": "WebSite",
+
+        name: SITE_NAME,
+
+        url: SITE_URL,
+
+        description:
+          "Free online tools for images, PDF, calculators, finance, business, text and everyday tasks.",
+      };
+    }
+
+    const schemaScript =
+      document.createElement("script");
+
+    schemaScript.type =
+      "application/ld+json";
+
+    schemaScript.id =
+      "dailytools-schema";
+
+    schemaScript.textContent =
+      JSON.stringify(schema);
+
+    document.head.appendChild(
+      schemaScript
+    );
+
+    // =========================
+    // CLEANUP
+    // =========================
+
+    return () => {
+      const script =
+        document.getElementById(
+          "dailytools-schema"
+        );
+
+      if (script) {
+        script.remove();
+      }
+    };
   }, [
     title,
     description,
     keywords,
     noIndex,
     image,
+    type,
     location.pathname,
   ]);
 

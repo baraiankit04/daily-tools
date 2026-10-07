@@ -356,10 +356,11 @@ function ImageCompressor() {
   return (
     <div className="container tool-page">
       <SEO
-        title="Image Compressor - Compress Image to KB Online"
-        description="Compress JPG, PNG and WebP images online to your required KB or MB size. Free, fast and easy image compressor."
-        keywords="image compressor, compress image to 20kb, compress image to 50kb, compress image to 100kb, reduce image size"
-      />
+  title="Image Compressor - Compress Image to KB Online"
+  description="Compress JPG, PNG and WebP images online to your required KB or MB size."
+  keywords="image compressor, compress image to 20kb, compress image to 50kb"
+  type="tool"
+/>
 
       {/* =========================
           HEADING
