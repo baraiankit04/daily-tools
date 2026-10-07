@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 function GSTCalculator() {
   const [amount, setAmount] = useState("");
@@ -14,11 +15,6 @@ function GSTCalculator() {
         description="Calculate GST amount and total price instantly. Free online GST calculator for India."
         keywords="gst calculator, calculate gst, gst online, india gst calculator"
       />
-      <SEO
-  title="GST Calculator India - Calculate GST Online"
-  description="Calculate GST amount, base price and total amount online with this free GST calculator."
-  keywords="gst calculator, gst calculator india, calculate gst, gst amount"
-/>
       <div className="tool-page-heading text-center">
         <h1>GST Calculator</h1>
         <p>Calculate GST amount and total price instantly.</p>

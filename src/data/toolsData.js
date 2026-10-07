@@ -207,15 +207,7 @@ const toolsData = [
   category: "Finance",
   popular: true,
 },
-{
-  name: "SIP Calculator",
-  description:
-    "Calculate SIP returns, total investment and estimated future value.",
-  icon: "bi-graph-up-arrow",
-  path: "/sip-calculator",
-  category: "Finance",
-  popular: true,
-},
+
 
 {
   name: "QR Code Generator",

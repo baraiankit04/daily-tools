@@ -187,7 +187,20 @@ function SEO({
 
     let schema;
 
-    if (type === "tool") {
+    const standardPages = [
+      "/",
+      "/tools",
+      "/about",
+      "/contact",
+      "/privacy",
+      "/terms",
+    ];
+
+    const isToolPage =
+      !noIndex &&
+      (type === "tool" || !standardPages.includes(location.pathname));
+
+    if (isToolPage) {
       schema = {
         "@context": "https://schema.org",
         "@type": "WebApplication",
