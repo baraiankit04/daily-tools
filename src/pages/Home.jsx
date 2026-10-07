@@ -6,6 +6,12 @@ import ToolCard from "../components/ToolCard";
 
 const categories = [
   {
+  name: "AI",
+  label: "AI Tools",
+  icon: "bi-stars",
+  description: "Prompts, emails & resume tools",
+},
+  {
     name: "Image",
     label: "Image Tools",
     icon: "bi-image",

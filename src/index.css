@@ -4080,3 +4080,2052 @@ select {
     display: none !important;
   }
 }
+
+/* =====================================
+   FREIGHT CALCULATOR
+===================================== */
+
+.freight-card,
+.freight-result {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.freight-card {
+  padding: 28px;
+}
+
+.freight-step {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 17px;
+}
+
+.freight-step-number {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: .68rem;
+  font-weight: 800;
+}
+
+.freight-step strong,
+.freight-step span {
+  display: block;
+}
+
+.freight-step strong {
+  color: var(--dark);
+  font-size: .78rem;
+}
+
+.freight-step span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .59rem;
+}
+
+.freight-divider {
+  height: 1px;
+  background: #eaecf0;
+  margin: 25px 0;
+}
+
+.freight-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.freight-type-grid button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  text-align: left;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: white;
+  color: #475467;
+}
+
+.freight-type-grid button:hover,
+.freight-type-grid button.active {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.freight-type-grid button > i {
+  font-size: 1.25rem;
+}
+
+.freight-type-grid strong,
+.freight-type-grid small {
+  display: block;
+}
+
+.freight-type-grid strong {
+  font-size: .7rem;
+}
+
+.freight-type-grid small {
+  margin-top: 2px;
+  font-size: .55rem;
+}
+
+.freight-card .form-label {
+  margin-bottom: 6px;
+  color: #344054;
+  font-size: .65rem;
+  font-weight: 700;
+}
+
+.freight-input-unit,
+.freight-rate-input,
+.freight-money-input {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  overflow: hidden;
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+  background: white;
+}
+
+.freight-input-unit:focus-within,
+.freight-rate-input:focus-within,
+.freight-money-input:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99,91,255,.08);
+}
+
+.freight-input-unit input,
+.freight-rate-input input,
+.freight-money-input input {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 0 13px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #101828;
+  font-size: .72rem;
+  font-weight: 650;
+}
+
+.freight-input-unit span,
+.freight-rate-input span,
+.freight-money-input span {
+  min-width: 48px;
+  height: 46px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  color: #667085;
+  font-size: .6rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.freight-input-unit span {
+  border-left: 1px solid #eaecf0;
+}
+
+.freight-rate-input span:first-child,
+.freight-money-input span:first-child {
+  border-right: 1px solid #eaecf0;
+}
+
+.freight-rate-input span:last-child {
+  border-left: 1px solid #eaecf0;
+}
+
+.freight-select {
+  min-height: 48px;
+  border-radius: 9px;
+  font-size: .7rem;
+}
+
+.freight-volume-section {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #eaecf0;
+  border-radius: 11px;
+  background: #fafafa;
+}
+
+.freight-optional-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.freight-optional-title strong {
+  color: #344054;
+  font-size: .68rem;
+}
+
+.freight-optional-title span {
+  margin-left: 7px;
+  padding: 3px 6px;
+  border-radius: 20px;
+  background: #f2f4f7;
+  color: #667085;
+  font-size: .5rem;
+}
+
+.freight-optional-title small {
+  color: #98a2b3;
+  font-size: .52rem;
+}
+
+.freight-formula-info,
+.freight-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #667085;
+  font-size: .54rem;
+  line-height: 1.6;
+}
+
+.freight-formula-info {
+  margin-top: 15px;
+}
+
+.freight-calculate-btn {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* RESULT */
+
+.freight-result {
+  scroll-margin-top: 120px;
+  margin-top: 25px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(16,24,40,.05);
+}
+
+.freight-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.freight-result-header h2 {
+  margin: 4px 0 0;
+  color: #101828;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.freight-result-mode {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 11px;
+  border-radius: 50px;
+  background: #eef4ff;
+  color: #3538cd;
+  font-size: .6rem;
+  font-weight: 750;
+}
+
+.freight-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.freight-result-grid > div {
+  padding: 14px;
+  border: 1px solid #eaecf0;
+  border-radius: 9px;
+  background: #fafafa;
+}
+
+.freight-result-grid span,
+.freight-result-grid strong {
+  display: block;
+}
+
+.freight-result-grid span {
+  color: #667085;
+  font-size: .55rem;
+}
+
+.freight-result-grid strong {
+  margin-top: 4px;
+  color: #344054;
+  font-size: .75rem;
+}
+
+.freight-result-grid .highlight {
+  border-color: #ddd9ff;
+  background: #fafaff;
+}
+
+.freight-result-grid .highlight strong {
+  color: var(--primary);
+}
+
+.freight-cost-details {
+  margin-top: 22px;
+}
+
+.freight-cost-details h3 {
+  margin-bottom: 8px;
+  color: #344054;
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.freight-cost-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f2f4f7;
+  color: #667085;
+  font-size: .65rem;
+}
+
+.freight-cost-details strong {
+  color: #344054;
+}
+
+.freight-total-box {
+  margin-top: 22px;
+  padding: 22px;
+  text-align: center;
+  border: 1px solid #abefc6;
+  border-radius: 12px;
+  background: #ecfdf3;
+}
+
+.freight-total-box span,
+.freight-total-box strong,
+.freight-total-box small {
+  display: block;
+}
+
+.freight-total-box span {
+  color: #067647;
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.freight-total-box strong {
+  margin-top: 5px;
+  color: #067647;
+  font-size: 1.55rem;
+  font-weight: 850;
+}
+
+.freight-total-box small {
+  margin-top: 4px;
+  color: #47a477;
+  font-size: .55rem;
+}
+
+.freight-result-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.freight-result-actions .primary-btn {
+  flex: 1;
+}
+
+.freight-reset-btn {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+  background: white;
+  color: #475467;
+  font-size: .65rem;
+  font-weight: 750;
+}
+
+.freight-note {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #eaecf0;
+}
+
+@media (max-width: 767px) {
+  .freight-card,
+  .freight-result {
+    padding: 18px;
+  }
+
+  .freight-result-header,
+  .freight-result-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .freight-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .freight-type-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .freight-optional-title {
+    flex-direction: column;
+  }
+
+  .freight-result-actions button {
+    width: 100%;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  #freight-result,
+  #freight-result * {
+    visibility: visible !important;
+  }
+
+  #freight-result {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .freight-result-actions {
+    display: none !important;
+  }
+}
+/* =====================================
+   SIMPLE CURRENCY CONVERTER
+===================================== */
+
+.simple-currency-card {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+.simple-currency-card label {
+  display: block;
+  margin-bottom: 7px;
+  color: #344054;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.simple-currency-field {
+  margin-bottom: 20px;
+}
+
+.simple-amount-box {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.simple-amount-box:focus-within {
+  border-color: var(--primary);
+}
+
+.simple-amount-box span {
+  padding-left: 16px;
+  color: #667085;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.simple-amount-box input {
+  width: 100%;
+  height: 100%;
+  padding: 0 12px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #101828;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.simple-currency-grid {
+  display: grid;
+  grid-template-columns: 1fr 44px 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.simple-currency-grid select {
+  width: 100%;
+  height: 52px;
+  padding: 0 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: #fff;
+  color: #344054;
+  outline: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.simple-currency-grid select:focus {
+  border-color: var(--primary);
+}
+
+.simple-swap-btn {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 4px;
+  border: 1px solid #ddd9ff;
+  border-radius: 50%;
+  background: #f5f3ff;
+  color: var(--primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.simple-swap-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.simple-currency-result {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #f8f7ff;
+  text-align: left;
+}
+
+.simple-currency-result p {
+  margin: 0 0 5px;
+  color: #667085;
+  font-size: 0.7rem;
+}
+
+.simple-currency-result h2 {
+  margin: 0;
+  color: #101828;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.simple-currency-result h2 span {
+  margin-left: 8px;
+  color: #667085;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.simple-rate {
+  margin-top: 12px;
+  color: #475467;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.simple-currency-result small {
+  display: block;
+  margin-top: 4px;
+  color: #98a2b3;
+  font-size: 0.58rem;
+}
+
+.simple-rate-loading,
+.simple-rate-error {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #667085;
+  font-size: 0.7rem;
+}
+
+.simple-rate-error {
+  color: #b42318;
+}
+
+.simple-currency-note {
+  margin-top: 12px;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  color: #98a2b3;
+  font-size: 0.58rem;
+}
+
+.simple-currency-note i {
+  color: var(--primary);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .simple-currency-card {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .simple-currency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .simple-swap-btn {
+    margin: -2px auto;
+    transform: rotate(90deg);
+  }
+
+  .simple-currency-result {
+    padding: 20px;
+  }
+
+  .simple-currency-result h2 {
+    font-size: 1.65rem;
+  }
+}
+/* =====================================
+   EXPORT INVOICE CALCULATOR
+===================================== */
+
+.export-invoice-card {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+.export-two-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.export-field {
+  margin-bottom: 18px;
+}
+
+.export-field label {
+  display: block;
+  margin-bottom: 7px;
+  color: #344054;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.export-field > input,
+.export-field select {
+  width: 100%;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: #fff;
+  color: #101828;
+  outline: none;
+  font-size: 0.72rem;
+}
+
+.export-field > input:focus,
+.export-field select:focus,
+.export-money-input:focus-within {
+  border-color: var(--primary);
+}
+
+.export-money-input {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.export-money-input span {
+  min-width: 46px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #eaecf0;
+  background: #f9fafb;
+  color: #667085;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.export-money-input input {
+  width: 100%;
+  height: 100%;
+  padding: 0 12px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 0.72rem;
+}
+
+.export-field small {
+  display: block;
+  margin-top: 5px;
+  color: #98a2b3;
+  font-size: 0.55rem;
+}
+
+.export-calculate-btn {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.export-calculate-btn i {
+  margin-right: 7px;
+}
+
+.export-result {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid #e4e1ff;
+  border-radius: 12px;
+  background: #fafaff;
+}
+
+.export-result-title {
+  margin-bottom: 13px;
+  color: #101828;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.export-result-row {
+  padding: 9px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #eaecf0;
+  color: #667085;
+  font-size: 0.65rem;
+}
+
+.export-result-row strong {
+  color: #344054;
+}
+
+.export-final-value {
+  margin-top: 15px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f0eeff;
+}
+
+.export-final-value > span {
+  display: block;
+  margin-bottom: 4px;
+  color: #667085;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.export-final-value strong {
+  color: var(--primary);
+  font-size: 1.55rem;
+  font-weight: 850;
+}
+
+.export-final-value b {
+  margin-left: 7px;
+  color: #475467;
+  font-size: 0.65rem;
+}
+
+.export-print-btn {
+  width: 100%;
+  margin-top: 13px;
+  padding: 10px;
+  border: 1px solid #ddd9ff;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.export-print-btn i {
+  margin-right: 6px;
+}
+
+.export-reset-btn {
+  width: 100%;
+  margin-top: 9px;
+  padding: 9px;
+  border: 0;
+  background: transparent;
+  color: #667085;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .export-invoice-card {
+    padding: 18px;
+  }
+
+  .export-two-fields {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .export-final-value strong {
+    font-size: 1.35rem;
+  }
+}
+
+/* PRINT */
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #export-invoice-result,
+  #export-invoice-result * {
+    visibility: visible;
+  }
+
+  #export-invoice-result {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: 0;
+    background: #fff;
+  }
+
+  .export-print-btn {
+    display: none !important;
+  }
+}
+/* =========================================
+   EXPORT INVOICE PAGE - LAYOUT FIX
+========================================= */
+
+/* Whole page spacing */
+.tool-page {
+  padding: 55px 0 80px;
+}
+
+/* Page heading center */
+.tool-page-heading {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.tool-page-heading .section-eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.tool-page-heading h1 {
+  margin: 0 0 10px;
+  color: #101828;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.tool-page-heading p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #667085;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* Export calculator */
+.export-invoice-card {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(16, 24, 40, 0.07);
+}
+
+/* SEO content should also not stick to left */
+.export-invoice-card + .seo-content {
+  max-width: 850px;
+  margin: 60px auto 0;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .tool-page {
+    padding: 42px 0 65px;
+  }
+
+  .tool-page-heading {
+    margin-bottom: 26px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .tool-page {
+    padding: 32px 0 50px;
+  }
+
+  .tool-page > .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .tool-page-heading {
+    margin-bottom: 22px;
+  }
+
+  .tool-page-heading h1 {
+    font-size: 1.8rem;
+  }
+
+  .tool-page-heading p {
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  .export-invoice-card {
+    max-width: 100%;
+    padding: 18px;
+    border-radius: 13px;
+  }
+
+  .export-two-fields {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+} 
+/* =========================================
+   EXPORT INVOICE - FINAL CENTER FIX
+========================================= */
+
+.export-invoice-card {
+  width: min(100%, 720px) !important;
+  max-width: 720px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding: 28px;
+
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+
+  display: block;
+}
+
+/* Heading also same center alignment */
+.tool-page-heading {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto 32px !important;
+  text-align: center;
+}
+
+/* SEO section */
+.export-invoice-card + .seo-content {
+  width: min(100%, 850px);
+  margin: 55px auto 0 !important;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .export-invoice-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 18px;
+  }
+
+  .tool-page > .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+/* =========================================================
+   DAILYTOOLS - FINAL MASTER TOOL LAYOUT
+   IMPORTANT: KEEP THIS AT THE VERY END OF index.css
+========================================================= */
+
+/* ---------- ALL TOOL PAGES ---------- */
+
+.tool-page {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 70vh;
+  margin: 0 !important;
+  padding: 55px 0 80px !important;
+  box-sizing: border-box;
+}
+
+.tool-page > .container {
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+
+/* =========================================================
+   COMMON TOOL HEADING
+========================================================= */
+
+.tool-page-heading {
+  width: 100% !important;
+  max-width: 820px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 32px !important;
+
+  text-align: center !important;
+}
+
+.tool-page-heading .section-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  color: var(--primary);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tool-page-heading h1 {
+  margin: 0 0 12px !important;
+
+  color: var(--dark);
+
+  font-size: clamp(2rem, 4vw, 2.7rem) !important;
+  font-weight: 800;
+
+  line-height: 1.15;
+}
+
+.tool-page-heading p {
+  width: 100%;
+  max-width: 650px !important;
+
+  margin: 0 auto !important;
+
+  color: var(--muted);
+
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   COMMON CENTERED CARDS
+========================================================= */
+
+.calculator-card,
+.pdf-tool-card,
+.passport-tool-card,
+.signature-tool-card,
+.image-converter-card,
+.cropper-tool-card,
+.simple-foreign-card,
+.freight-card,
+.simple-currency-card,
+.export-invoice-card {
+  width: 100% !important;
+
+  max-width: 720px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BASIC CALCULATOR CARD
+========================================================= */
+
+.calculator-card {
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+
+/* =========================================================
+   EXPORT INVOICE
+========================================================= */
+
+.export-invoice-card {
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+.export-two-fields {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 16px;
+}
+
+.export-field {
+  width: 100%;
+  min-width: 0;
+
+  margin-bottom: 18px;
+}
+
+.export-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #344054;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.export-field > input,
+.export-field select {
+  display: block;
+
+  width: 100%;
+  height: 50px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #101828;
+
+  outline: none;
+
+  font-size: 0.72rem;
+
+  box-sizing: border-box;
+}
+
+.export-field > input:focus,
+.export-field select:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(99, 91, 255, 0.08);
+}
+
+.export-money-input {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+}
+
+.export-money-input:focus-within {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(99, 91, 255, 0.08);
+}
+
+.export-money-input span {
+  min-width: 46px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid #eaecf0;
+
+  background: #f9fafb;
+
+  color: #667085;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.export-money-input input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0 12px;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: #101828;
+
+  font-size: 0.72rem;
+
+  box-sizing: border-box;
+}
+
+.export-field small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #98a2b3;
+
+  font-size: 0.58rem;
+}
+
+.export-calculate-btn {
+  width: 100%;
+  min-height: 50px;
+
+  margin-top: 4px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: var(--primary);
+  color: #ffffff;
+
+  font-size: 0.7rem;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.export-calculate-btn:hover {
+  background: var(--primary-dark);
+}
+
+.export-calculate-btn:active {
+  transform: scale(0.99);
+}
+
+.export-calculate-btn i {
+  margin-right: 7px;
+}
+
+
+/* EXPORT RESULT */
+
+.export-result {
+  width: 100%;
+
+  margin-top: 22px;
+  padding: 20px;
+
+  border: 1px solid #e4e1ff;
+  border-radius: 12px;
+
+  background: #fafaff;
+
+  box-sizing: border-box;
+}
+
+.export-result-title {
+  margin-bottom: 13px;
+
+  color: #101828;
+
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.export-result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid #eaecf0;
+
+  color: #667085;
+
+  font-size: 0.65rem;
+}
+
+.export-result-row strong {
+  color: #344054;
+
+  font-weight: 700;
+}
+
+.export-final-value {
+  margin-top: 16px;
+  padding: 17px;
+
+  border-radius: 10px;
+
+  background: #f0eeff;
+}
+
+.export-final-value > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #667085;
+
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.export-final-value strong {
+  color: var(--primary);
+
+  font-size: 1.55rem;
+  font-weight: 850;
+}
+
+.export-final-value b {
+  margin-left: 7px;
+
+  color: #475467;
+
+  font-size: 0.65rem;
+}
+
+.export-print-btn {
+  width: 100%;
+
+  margin-top: 13px;
+  padding: 11px;
+
+  border: 1px solid #ddd9ff;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: var(--primary);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.export-print-btn:hover {
+  background: #f8f7ff;
+}
+
+.export-print-btn i {
+  margin-right: 6px;
+}
+
+.export-reset-btn {
+  width: 100%;
+
+  margin-top: 8px;
+  padding: 10px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #667085;
+
+  font-size: 0.6rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   CURRENCY CONVERTER
+========================================================= */
+
+.simple-currency-card {
+  padding: 26px;
+
+  background: #ffffff;
+
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+.simple-currency-card label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #344054;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.simple-currency-field {
+  margin-bottom: 20px;
+}
+
+.simple-amount-box {
+  width: 100%;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+}
+
+.simple-amount-box:focus-within {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(99, 91, 255, 0.08);
+}
+
+.simple-amount-box span {
+  padding-left: 16px;
+
+  color: #667085;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.simple-amount-box input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0 12px;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: #101828;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.simple-currency-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    44px
+    minmax(0, 1fr);
+
+  gap: 12px;
+
+  align-items: end;
+}
+
+.simple-currency-grid select {
+  width: 100%;
+  height: 52px;
+
+  padding: 0 12px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #344054;
+
+  outline: none;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.simple-currency-grid select:focus {
+  border-color: var(--primary);
+}
+
+.simple-swap-btn {
+  width: 44px;
+  height: 44px;
+
+  margin-bottom: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ddd9ff;
+  border-radius: 50%;
+
+  background: #f5f3ff;
+
+  color: var(--primary);
+
+  font-size: 0.9rem;
+
+  cursor: pointer;
+}
+
+.simple-swap-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.simple-currency-result {
+  width: 100%;
+
+  margin-top: 24px;
+  padding: 24px;
+
+  border-radius: 12px;
+
+  background: #f8f7ff;
+
+  text-align: left;
+
+  box-sizing: border-box;
+}
+
+.simple-currency-result p {
+  margin: 0 0 5px;
+
+  color: #667085;
+
+  font-size: 0.7rem;
+}
+
+.simple-currency-result h2 {
+  margin: 0;
+
+  color: #101828;
+
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.simple-currency-result h2 span {
+  margin-left: 8px;
+
+  color: #667085;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.simple-rate {
+  margin-top: 12px;
+
+  color: #475467;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.simple-currency-result small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #98a2b3;
+
+  font-size: 0.58rem;
+}
+
+.simple-rate-loading,
+.simple-rate-error {
+  min-height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #667085;
+
+  font-size: 0.7rem;
+}
+
+.simple-rate-error {
+  color: #b42318;
+}
+
+.simple-currency-note {
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #98a2b3;
+
+  font-size: 0.58rem;
+}
+
+.simple-currency-note i {
+  color: var(--primary);
+}
+
+
+/* =========================================================
+   FOREIGN PAYMENT
+========================================================= */
+
+.simple-foreign-page {
+  width: 100%;
+}
+
+.simple-foreign-card {
+  padding: 28px;
+}
+
+.simple-foreign-step {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 17px;
+}
+
+.simple-step-number {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+  color: #ffffff;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.simple-foreign-step strong,
+.simple-foreign-step span {
+  display: block;
+}
+
+.simple-foreign-step strong {
+  color: var(--dark);
+
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.simple-foreign-step span {
+  margin-top: 2px;
+
+  color: var(--muted);
+
+  font-size: 0.59rem;
+}
+
+.simple-foreign-card .form-label {
+  margin-bottom: 6px;
+
+  color: #344054;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.simple-foreign-input {
+  min-height: 48px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+
+  font-size: 0.72rem;
+}
+
+.simple-foreign-input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(99, 91, 255, 0.08);
+}
+
+
+/* =========================================================
+   FREIGHT
+========================================================= */
+
+.freight-card {
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+.freight-result {
+  width: 100% !important;
+  max-width: 720px !important;
+
+  margin: 22px auto 0 !important;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SEO CONTENT
+========================================================= */
+
+.tool-page .seo-content {
+  width: 100% !important;
+  max-width: 800px !important;
+
+  margin: 55px auto 0 !important;
+
+  padding: 0 !important;
+}
+
+.tool-page .seo-content h2 {
+  margin-top: 28px;
+  margin-bottom: 10px;
+
+  color: var(--dark);
+
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.tool-page .seo-content h2:first-child {
+  margin-top: 0;
+}
+
+.tool-page .seo-content p {
+  margin-bottom: 15px;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+  .tool-page {
+    padding: 45px 0 65px !important;
+  }
+
+  .tool-page-heading {
+    margin-bottom: 28px !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .tool-page {
+    width: 100% !important;
+
+    padding: 32px 0 55px !important;
+  }
+
+  .tool-page > .container {
+    width: 100% !important;
+
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .tool-page-heading {
+    width: 100% !important;
+
+    margin-bottom: 23px !important;
+  }
+
+  .tool-page-heading h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .tool-page-heading p {
+    max-width: 100% !important;
+
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+
+  /* CARDS */
+
+  .calculator-card,
+  .pdf-tool-card,
+  .passport-tool-card,
+  .signature-tool-card,
+  .image-converter-card,
+  .cropper-tool-card,
+  .simple-foreign-card,
+  .freight-card,
+  .simple-currency-card,
+  .export-invoice-card,
+  .freight-result {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    box-sizing: border-box;
+  }
+
+  .calculator-card,
+  .simple-foreign-card,
+  .freight-card,
+  .simple-currency-card,
+  .export-invoice-card {
+    padding: 18px;
+  }
+
+
+  /* EXPORT */
+
+  .export-two-fields {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .export-final-value strong {
+    font-size: 1.35rem;
+  }
+
+
+  /* CURRENCY */
+
+  .simple-currency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .simple-swap-btn {
+    margin: -2px auto;
+
+    transform: rotate(90deg);
+  }
+
+  .simple-currency-result {
+    padding: 20px;
+  }
+
+  .simple-currency-result h2 {
+    font-size: 1.55rem;
+  }
+
+
+  /* SEO */
+
+  .tool-page .seo-content {
+    width: 100% !important;
+
+    margin-top: 40px !important;
+  }
+
+  .tool-page .seo-content h2 {
+    font-size: 1rem;
+  }
+
+  .tool-page .seo-content p {
+    font-size: 0.76rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .tool-page > .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .tool-page-heading h1 {
+    font-size: 1.6rem !important;
+  }
+
+  .export-invoice-card,
+  .simple-currency-card,
+  .simple-foreign-card,
+  .freight-card,
+  .calculator-card {
+    padding: 15px;
+  }
+}
+
+
+/* =========================================================
+   EXPORT PRINT
+========================================================= */
+
+@media print {
+
+  body * {
+    visibility: hidden;
+  }
+
+  #export-invoice-result,
+  #export-invoice-result * {
+    visibility: visible;
+  }
+
+  #export-invoice-result {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 20px;
+
+    border: 0;
+
+    background: #ffffff;
+
+    box-shadow: none;
+  }
+
+  #export-invoice-result .export-print-btn {
+    display: none !important;
+  }
+}

@@ -171,6 +171,101 @@ const toolsData = [
   category: "Currency",
   popular: true,
 },
+{
+  name: "Freight Calculator",
+  description:
+    "Calculate air and sea freight cost, chargeable weight and shipment charges.",
+  icon: "bi-airplane",
+  path: "/freight-calculator",
+  category: "Business",
+  popular: true,
+},
+{
+  name: "Currency Converter",
+  description:
+    "Convert GBP, USD, EUR, AED, INR and other currencies using your exchange rate.",
+  icon: "bi-currency-exchange",
+  path: "/currency-converter",
+  category: "Currency",
+  popular: true,
+},
+{
+  name: "Export Invoice Calculator",
+  description:
+    "Calculate product value, freight, charges, discount and final export invoice amount.",
+  icon: "bi-receipt",
+  path: "/export-invoice-calculator",
+  category: "Business",
+  popular: true,
+},
+{
+  name: "SIP Calculator",
+  description:
+    "Calculate SIP returns, total investment and estimated future value.",
+  icon: "bi-graph-up-arrow",
+  path: "/sip-calculator",
+  category: "Finance",
+  popular: true,
+},
+{
+  name: "SIP Calculator",
+  description:
+    "Calculate SIP returns, total investment and estimated future value.",
+  icon: "bi-graph-up-arrow",
+  path: "/sip-calculator",
+  category: "Finance",
+  popular: true,
+},
+
+{
+  name: "QR Code Generator",
+  description:
+    "Create QR codes for websites, text, WhatsApp and email.",
+  icon: "bi-qr-code",
+  path: "/qr-code-generator",
+  category: "Daily",
+  popular: true,
+},
+
+{
+  name: "Remove Duplicate Lines",
+  description:
+    "Remove duplicate lines, blank lines and extra spaces from text.",
+  icon: "bi-text-paragraph",
+  path: "/remove-duplicate-lines",
+  category: "Text",
+  popular: true,
+},
+
+{
+  name: "AI Prompt Generator",
+  description:
+    "Turn simple ideas into clear and structured prompts for AI assistants.",
+  icon: "bi-stars",
+  path: "/ai-prompt-generator",
+  category: "AI",
+  popular: true,
+},
+
+{
+  name: "Professional Email Generator",
+  description:
+    "Create professional emails for requests, follow-ups and business communication.",
+  icon: "bi-envelope-paper",
+  path: "/professional-email-generator",
+  category: "AI",
+  popular: true,
+},
+
+{
+  name: "Resume Bullet Generator",
+  description:
+    "Turn work responsibilities into professional resume bullet points.",
+  icon: "bi-file-earmark-person",
+  path: "/resume-bullet-generator",
+  category: "AI",
+  popular: true,
+},
 ];
 
 export default toolsData;

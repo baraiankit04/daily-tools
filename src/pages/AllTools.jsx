@@ -11,6 +11,7 @@ const categories = [
   "Finance",
   "Currency",
   "Business",
+  "AI",
   "Daily",
   "Text",
 ];
